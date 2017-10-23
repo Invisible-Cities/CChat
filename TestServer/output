@@ -1,0 +1,35 @@
+In file included from /usr/include/x86_64-linux-gnu/sys/types.h:219:0,
+                 from /usr/include/stdlib.h:314,
+                 from util.h:2,
+                 from network_util.h:1,
+                 from client.c:1:
+client.c: In function ‘main’:
+client.c:58:10: error: ‘STDIN’ undeclared (first use in this function)
+   FD_SET(STDIN, &fds);
+          ^
+client.c:58:10: note: each undeclared identifier is reported only once for each function it appears in
+client.c:61:11: error: ‘maxfd’ undeclared (first use in this function)
+    select(maxfd+1, &fds, NULL, NULL, NULL);
+           ^
+client.c:63:5: warning: passing argument 1 of ‘getline’ from incompatible pointer type [enabled by default]
+     getline(buffer, &input_size, stdin);
+     ^
+In file included from util.h:1:0,
+                 from network_util.h:1,
+                 from client.c:1:
+/usr/include/stdio.h:678:20: note: expected ‘char ** __restrict__’ but argument is of type ‘char *’
+ extern _IO_ssize_t getline (char **__restrict __lineptr,
+                    ^
+client.c:63:5: warning: passing argument 2 of ‘getline’ from incompatible pointer type [enabled by default]
+     getline(buffer, &input_size, stdin);
+     ^
+In file included from util.h:1:0,
+                 from network_util.h:1,
+                 from client.c:1:
+/usr/include/stdio.h:678:20: note: expected ‘size_t * __restrict__’ but argument is of type ‘int *’
+ extern _IO_ssize_t getline (char **__restrict __lineptr,
+                    ^
+client.c:68:5: warning: format ‘%d’ expects a matching ‘int’ argument [-Wformat=]
+     printf("RECV: %d bytes\n"), input_size;
+     ^
+make: *** [client] Error 1
