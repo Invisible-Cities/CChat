@@ -1,4 +1,5 @@
-INC=-I/home/Angel/Test/Chat/HEADERS
+INC=/home/Angel/Test/Chat/HEADERS
+MAIN=server2.c
 
-chat: server2.c HEADERS/*
-	gcc -c $(INC) -o chat server2.c 
+chat: $(MAIN) $(INC)/*
+	gcc -c -I$(INC) -o chat $(MAIN)
