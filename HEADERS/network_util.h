@@ -4,7 +4,7 @@ int send_string(int sockfd, unsigned char* buffer) {
 	int sent_bytes, bytes_to_send;
 	bytes_to_send = strlen(buffer);
 	while(bytes_to_send > 0) {
-		sent_bytes = send(sockfd, buffer, bytes_to_send, 0;
+		sent_bytes = send(sockfd, buffer, bytes_to_send, 0);
 		if(sent_bytes == -1) {
 			return 0;
 		}
@@ -36,3 +36,5 @@ int recv_line(int sockfd, unsigned char* dest_buffer) {
 	}
 	return -1; //Failed to find EOL;
 }
+
+
