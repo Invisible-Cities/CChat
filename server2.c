@@ -1,4 +1,4 @@
-#include "network_util.h"
+#include "HEADERS/network_util.h"
 
 #define PORT 6789
 
@@ -12,7 +12,6 @@ int main(void) {
 	int newfd; //Newly accepted socket descriptor
 	struct sockaddr_in host_addr, client_addr;
 	socklen_t addrlen;
-
 	char buf[256];
 	int i, j, rv;
 
